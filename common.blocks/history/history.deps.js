@@ -2,7 +2,6 @@
     shouldDeps : [
         'events',
         'inherit',
-        'jquery',
         { block : 'uri', elem : 'querystring' },
         /*
             The final choice of provider is in the moment of history module requiring.

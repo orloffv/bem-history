@@ -1,4 +1,4 @@
-modules.define('spec', ['jquery', 'history', 'uri__querystring'], function(provide, $, History, Querystring) {
+modules.define('spec', ['history', 'uri__querystring'], function(provide, History, Querystring) {
 
 describe('history', function() {
 

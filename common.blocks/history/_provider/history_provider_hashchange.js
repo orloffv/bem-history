@@ -5,7 +5,7 @@
  * @module history
  */
 
-modules.define('history', ['inherit', 'jquery', 'uri__querystring'], function(provide, inherit, $, Querystring, Base) {
+modules.define('history', ['inherit', 'uri__querystring'], function(provide, inherit, Querystring, Base) {
 
 if(!('onhashchange' in window) || Base.hasNativeAPI()) {
     provide(Base);
@@ -28,7 +28,7 @@ provide(inherit(Base, /** @lends history.prototype */{
     },
 
     _bindEvents : function() {
-        $(window).on('hashchange', $.proxy(this._onHashChange, this));
+        window.addEventListener('hashchange', this._onHashChange.bind(this), false);
 
         return this;
     },

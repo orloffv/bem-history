@@ -3,7 +3,7 @@
  *
  * @module history
  */
-modules.define('history', ['inherit', 'jquery', 'uri__querystring'], function(provide, inherit, $, Querystring, Base) {
+modules.define('history', ['inherit', 'uri__querystring'], function(provide, inherit, Querystring, Base) {
 
 if(!Base.hasNativeAPI()) {
     provide(Base);
@@ -22,7 +22,7 @@ provide(inherit(Base, /** @lends history.prototype */{
      * @private
      */
     _onPopState : function(e) {
-        var state = e.originalEvent.state;
+        var state = e.state;
 
         // Ignore initial popstate
         if(state === null) {
@@ -39,7 +39,7 @@ provide(inherit(Base, /** @lends history.prototype */{
     },
 
     _bindEvents : function() {
-        $(window).on('popstate', $.proxy(this._onPopState, this));
+        window.addEventListener('popstate', this._onPopState.bind(this), false);
 
         return this;
     },

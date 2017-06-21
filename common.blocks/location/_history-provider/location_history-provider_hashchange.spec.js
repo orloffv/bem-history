@@ -1,6 +1,6 @@
 window.history = {};
 
-modules.define('spec', ['uri__querystring', 'location', 'jquery'], function(provide, Querystring, location, $) {
+modules.define('spec', ['uri__querystring', 'location'], function(provide, Querystring, location) {
 
 describe('location hashchange', function() {
     var Uri = Querystring.Uri;
